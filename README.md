@@ -1,1 +1,1 @@
-# neovim-plugin-template
+# session.nvim
