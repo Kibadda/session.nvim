@@ -2,6 +2,8 @@ local M = {}
 
 local utils = require "session.utils"
 
+--- setup plugin with provided options
+---
 ---@param opts? SessionConfig
 function M.setup(opts)
   local config = require "session.config"
@@ -12,7 +14,9 @@ function M.setup(opts)
   end
 end
 
----@param session? string
+--- load session with given name
+---
+---@param session string
 function M.load(session)
   session = utils.check(session)
   if session then
@@ -27,6 +31,9 @@ function M.load(session)
   end
 end
 
+--- ask to delete session with given name
+--- if no name is given uses current session
+---
 ---@param session? string
 function M.delete(session)
   if session then
@@ -46,6 +53,8 @@ function M.delete(session)
   end
 end
 
+--- create new session
+--- prompts user to give a name for the session
 function M.new()
   local session
   vim.ui.input({ prompt = "Session name: " }, function(input)
@@ -63,6 +72,9 @@ function M.new()
   end
 end
 
+--- update session with given name
+--- if no name is given uses current session
+---
 ---@param session? string
 function M.update(session)
   if session then
@@ -81,6 +93,8 @@ function M.update(session)
   end
 end
 
+--- get list of all available sessions
+---
 ---@return string[]
 function M.list()
   local sessions = {}
