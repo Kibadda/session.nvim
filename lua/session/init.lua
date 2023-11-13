@@ -2,7 +2,7 @@ local M = {}
 
 local utils = require "session.utils"
 
---- setup plugin with provided options
+--- setup plugin with provided options or defaults
 ---
 ---@param opts? SessionConfig
 function M.setup(opts)
