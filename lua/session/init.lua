@@ -22,10 +22,7 @@ function M.load(session)
   if session then
     M.update()
     utils.hooks("load", function()
-      vim.cmd.bufdo {
-        args = { "bwipeout" },
-        bang = true,
-      }
+      vim.cmd "%bwipeout"
       vim.cmd.source(session)
     end)
   end
