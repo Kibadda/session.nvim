@@ -19,15 +19,17 @@ install with your favorite plugin manager, e.g. [lazy.nvim](https://github.com/f
 {
   save_on_vim_leave = true,
   hooks = {
+    ---@type table<"save"|"delete"|"load", function?>
     pre = {
-      save = function() end,
-      delete = function() end,
-      load = function() end,
+      save = nil,
+      delete = nil,
+      load = nil,
     },
+    ---@type table<"save"|"delete"|"load", function?>
     post = {
-      save = function() end,
-      delete = function() end,
-      load = function() end,
+      save = nil,
+      delete = nil,
+      load = nil,
     },
   },
   dir = vim.fn.stdpath "data" .. "/session",
