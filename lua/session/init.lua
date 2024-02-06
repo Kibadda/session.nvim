@@ -40,13 +40,11 @@ function M.delete(session)
   end
 
   if session then
-    vim.ui.select({ "Yes", "No" }, { prompt = ("Delete session %s"):format(session) }, function(choice)
-      if choice == "Yes" then
-        utils.hooks("delete", function()
-          os.remove(session)
-        end)
-      end
-    end)
+    if vim.fn.confirm(("Delete session %s?"):format(session), "&Yes\n&No", 2) == 1 then
+      utils.hooks("delete", function()
+        os.remove(session)
+      end)
+    end
   end
 end
 
