@@ -4,6 +4,7 @@ local M = {}
 ---@field dir string path to session directory
 ---@field save_on_exit boolean wether session should be saved on VimLeave
 
+--- merge user config with defaults
 ---@return SessionConfig
 function M.config()
   return vim.tbl_deep_extend("force", {}, {
@@ -28,6 +29,7 @@ local function save(session)
   }
 end
 
+--- create new session
 function M.new()
   local session
 
@@ -49,6 +51,7 @@ function M.new()
   save(config.dir .. "/" .. session)
 end
 
+--- update current session
 function M.update()
   if vim.v.this_session == nil or vim.v.this_session == "" or vim.fn.filereadable(vim.v.this_session) == 0 then
     vim.notify("session: currently not in a session", vim.log.levels.WARN)
@@ -58,6 +61,7 @@ function M.update()
   save(vim.v.this_session)
 end
 
+--- get a list of sessions in `vim.g.session.dir`
 ---@return string[]
 function M.list()
   local config = M.config()
@@ -72,6 +76,8 @@ function M.list()
   return sessions
 end
 
+--- load given session or session selected via `vim.ui.select`
+--- updates current session before loading
 ---@param session string?
 function M.load(session)
   if not session then
@@ -93,6 +99,7 @@ function M.load(session)
   vim.cmd.source(config.dir .. "/" .. session)
 end
 
+--- delete current session
 function M.delete()
   if vim.v.this_session == nil or vim.v.this_session == "" or vim.fn.filereadable(vim.v.this_session) == 0 then
     vim.notify("session: currently not in a session", vim.log.levels.WARN)
