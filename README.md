@@ -20,7 +20,7 @@ This plugin exports following `<Plug>` mappings:
 <Plug>(SessionDelete) -> require("session").delete()
 ```
 
-Additionally this plugin also exposes the function to get a list of all sessions:
+Additionally this plugin also exposes the following function to get a list of all sessions:
 ```lua
 require("session").list()
 ```
