@@ -5,7 +5,7 @@ To change the default configuration, set `vim.g.session`.
 
 Default config:
 ```lua
-vim.g.session {
+vim.g.session = {
   dir = vim.fn.stdpath "data" .. "/session",
   save_on_exit = true,
 }
