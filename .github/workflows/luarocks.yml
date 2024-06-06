@@ -3,7 +3,7 @@ name: Push to Luarocks
 on:
   push:
     tags:
-      - "*"
+      - '*'
   pull_request:
   workflow_dispatch:
 
