@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/Kibadda/session.nvim/compare/v1.1.0...v1.1.1) (2024-06-06)
+
+
+### Bug Fixes
+
+* do not delete all args before saving ([f120513](https://github.com/Kibadda/session.nvim/commit/f1205138335ff60548f0f73fc1636286e6fd493d))
+
 ## [1.1.0](https://github.com/Kibadda/session.nvim/compare/v1.0.0...v1.1.0) (2024-06-05)
 
 
