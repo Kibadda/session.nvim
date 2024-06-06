@@ -21,8 +21,6 @@ local function save(session)
     vim.fn.mkdir(config.dir, "p")
   end
 
-  pcall(vim.cmd.argdelete, "*")
-
   vim.cmd.mksession {
     args = { session },
     bang = true,
