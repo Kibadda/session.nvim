@@ -1,21 +1,8 @@
 local M = {}
 
----@class SessionConfig
----@field dir string path to session directory
----@field save_on_exit boolean wether session should be saved on VimLeave
-
---- merge user config with defaults
----@return SessionConfig
-function M.config()
-  return vim.tbl_deep_extend("force", {}, {
-    dir = vim.fn.stdpath "data" .. "/session",
-    save_on_exit = true,
-  }, vim.g.session or {})
-end
-
 ---@param session string
 local function save(session)
-  local config = M.config()
+  local config = require("session.config").get()
 
   if vim.fn.isdirectory(config.dir) == 0 then
     vim.fn.mkdir(config.dir, "p")
@@ -39,7 +26,7 @@ function M.new()
     return
   end
 
-  local config = M.config()
+  local config = require("session.config").get()
 
   if vim.fn.filereadable(config.dir .. "/" .. session) == 1 then
     vim.notify("session: a session with name '" .. session .. "' already exists.", vim.log.levels.ERROR)
@@ -62,7 +49,7 @@ end
 --- get a list of sessions in `vim.g.session.dir`
 ---@return string[]
 function M.list()
-  local config = M.config()
+  local config = require("session.config").get()
   local sessions = {}
 
   for name in vim.fs.dir(config.dir) do
@@ -84,7 +71,7 @@ function M.load(session)
     end)
   end
 
-  local config = M.config()
+  local config = require("session.config").get()
 
   if not session or session == "" or vim.fn.filereadable(config.dir .. "/" .. session) == 0 then
     vim.notify("session: could not find session '" .. (session or "") .. "'", vim.log.levels.WARN)
