@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/Kibadda/session.nvim/compare/v1.1.1...v2.0.0) (2024-06-07)
+
+
+### ⚠ BREAKING CHANGES
+
+* **config:** rename config class type
+
+### Features
+
+* **config:** rename config class type ([3ffc103](https://github.com/Kibadda/session.nvim/commit/3ffc10344376c68b6616ffd1e26b4a6362c4fac9))
+
 ## [1.1.1](https://github.com/Kibadda/session.nvim/compare/v1.1.0...v1.1.1) (2024-06-06)
 
 
