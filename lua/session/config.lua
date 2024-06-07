@@ -1,6 +1,6 @@
 local M = {}
 
----@class SessionConfig
+---@class session.config
 ---@field dir string path to session directory
 ---@field save_on_exit boolean wether session should be saved on VimLeave
 
@@ -9,9 +9,9 @@ M.defaults = {
   save_on_exit = true,
 }
 
----@return SessionConfig
+---@return session.config
 function M.get()
-  ---@type SessionConfig
+  ---@type session.config
   local config = vim.g.session or {}
 
   vim.validate("config", config, "table")
