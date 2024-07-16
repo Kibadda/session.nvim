@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/Kibadda/session.nvim/compare/v2.0.0...v2.0.1) (2024-07-16)
+
+
+### Bug Fixes
+
+* only update session on load if currently in session ([de9d843](https://github.com/Kibadda/session.nvim/commit/de9d843aaeb0bf07932739d83ce9edc946f38fe1))
+
 ## [2.0.0](https://github.com/Kibadda/session.nvim/compare/v1.1.1...v2.0.0) (2024-06-07)
 
 
