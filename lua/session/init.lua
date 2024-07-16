@@ -78,7 +78,9 @@ function M.load(session)
     return
   end
 
-  M.update()
+  if vim.v.this_session ~= nil and vim.v.this_session ~= "" then
+    M.update()
+  end
 
   vim.cmd "silent! %bwipeout"
   vim.cmd.source(config.dir .. "/" .. session)
