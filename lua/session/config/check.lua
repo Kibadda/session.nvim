@@ -1,5 +1,6 @@
 local M = {}
 
+--- small wrapper around vim.validate
 ---@param path string
 ---@param tbl table
 ---@return boolean
@@ -10,6 +11,7 @@ local function validate(path, tbl)
   return ok or false, prefix .. (err and path .. "." .. err or path)
 end
 
+--- validate given config
 ---@param config session.Config
 ---@return boolean
 ---@return string?
