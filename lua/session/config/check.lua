@@ -12,7 +12,7 @@ local function validate(path, tbl)
 end
 
 --- validate given config
----@param config session.Config
+---@param config session.internalconfig
 ---@return boolean
 ---@return string?
 function M.validate(config)
