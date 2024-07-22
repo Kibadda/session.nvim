@@ -1,5 +1,21 @@
 # Changelog
 
+## [3.0.0](https://github.com/Kibadda/session.nvim/compare/v2.0.1...v3.0.0) (2024-07-22)
+
+
+### ⚠ BREAKING CHANGES
+
+* simplify config loading/merging
+
+### Features
+
+* add health check ([5a85bf1](https://github.com/Kibadda/session.nvim/commit/5a85bf1f80304efff4697269cb8c92d4c9ee5907))
+
+
+### Code Refactoring
+
+* simplify config loading/merging ([02379cc](https://github.com/Kibadda/session.nvim/commit/02379cc5b2408f9dd42ef4dd441f1078c712e786))
+
 ## [2.0.1](https://github.com/Kibadda/session.nvim/compare/v2.0.0...v2.0.1) (2024-07-16)
 
 
