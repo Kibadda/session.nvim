@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.0](https://github.com/Kibadda/session.nvim/compare/v3.0.0...v3.1.0) (2025-03-11)
+
+
+### Features
+
+* add nix files ([720b72a](https://github.com/Kibadda/session.nvim/commit/720b72a81a611f1280d180f368be16aa1246f63c))
+
 ## [3.0.0](https://github.com/Kibadda/session.nvim/compare/v2.0.1...v3.0.0) (2024-07-22)
 
 
