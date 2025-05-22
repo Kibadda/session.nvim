@@ -17,10 +17,9 @@ local opts = type(vim.g.session) == "function" and vim.g.session() or vim.g.sess
 ---@type session.internalconfig
 local SessionConfig = vim.tbl_deep_extend("force", {}, SessionDefaultConfig, opts)
 
-local check = require "session.config.check"
-local ok, err = check.validate(SessionConfig)
+local ok = require("session.config.check").validate(SessionConfig)
 if not ok then
-  vim.notify("session: " .. err, vim.log.levels.ERROR)
+  vim.notify("session: there are errors in your config. see `:checkhealth session`", vim.log.levels.ERROR)
 end
 
 return SessionConfig

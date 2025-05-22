@@ -1,32 +1,32 @@
 local M = {}
 
---- small wrapper around vim.validate
----@param path string
----@param tbl table
----@return boolean
----@return string?
-local function validate(path, tbl)
-  local prefix = "invalid config: "
-  local ok, err = pcall(vim.validate, tbl)
-  return ok or false, prefix .. (err and path .. "." .. err or path)
-end
-
 --- validate given config
 ---@param config session.internalconfig
 ---@return boolean
----@return string?
+---@return string[]
 function M.validate(config)
-  local ok, err
+  local errors = {}
 
-  ok, err = validate("session", {
-    dir = { config.dir, "string", true },
-    save_on_exit = { config.save_on_exit, "boolean", true },
-  })
-  if not ok then
-    return false, err
+  --- small wrapper around vim.validate
+  ---@param name string
+  ---@param value any
+  ---@param types any|any[]
+  ---@param optional? boolean
+  ---@return boolean
+  local function validate(name, value, types, optional)
+    local ok, err = pcall(vim.validate, name, value, types, optional)
+
+    if not ok then
+      table.insert(errors, err)
+    end
+
+    return ok
   end
 
-  return true
+  validate("session.dir", config.dir, "string", true)
+  validate("session.save_on_exit", config.save_on_exit, "boolean", true)
+
+  return #errors == 0, errors
 end
 
 return M
